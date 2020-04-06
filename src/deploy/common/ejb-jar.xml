@@ -1,0 +1,209 @@
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
+
+<ejb-jar>
+ <display-name>Stockonline EJBs</display-name>
+ <enterprise-beans>
+
+    <entity>
+       <description>A CMP enitity bean for Account</description>
+       <display-name>cmpAccount</display-name>
+       <ejb-name>cmpAccount</ejb-name>
+       <home>stockonline.ejb.entity.interf.AccountHome</home>
+       <remote>stockonline.ejb.entity.interf.Account</remote>
+       <ejb-class>stockonline.ejb.entity.cmp.account.AccountBean</ejb-class>
+       <persistence-type>Container</persistence-type>
+       <prim-key-class>stockonline.ejb.entity.interf.AccountPK</prim-key-class>
+       <reentrant>False</reentrant>
+       <cmp-field><field-name>sub_accno</field-name></cmp-field>
+       <cmp-field><field-name>sub_name</field-name></cmp-field>
+       <cmp-field><field-name>sub_address</field-name></cmp-field>
+       <cmp-field><field-name>sub_credit</field-name></cmp-field>
+       <resource-ref>
+          <res-ref-name>jdbc/StockDB</res-ref-name>
+          <res-type>javax.sql.DataSource</res-type>
+          <res-auth>Container</res-auth>
+       </resource-ref>
+   </entity>
+
+    <entity>
+       <description>A CMP enitity bean for StockTx</description>
+       <display-name>cmpStockTx</display-name>
+       <ejb-name>cmpStockTx</ejb-name>
+       <home>stockonline.ejb.entity.interf.StockTxHome</home>
+       <remote>stockonline.ejb.entity.interf.StockTx</remote>
+       <ejb-class>stockonline.ejb.entity.cmp.stocktx.StockTxBean</ejb-class>
+       <persistence-type>Container</persistence-type>
+       <prim-key-class>stockonline.ejb.entity.interf.StockTxPK</prim-key-class>
+       <reentrant>False</reentrant>
+       <cmp-field><field-name>trans_id</field-name></cmp-field>
+       <cmp-field><field-name>trans_type</field-name></cmp-field>
+       <cmp-field><field-name>sub_accno</field-name></cmp-field>
+       <cmp-field><field-name>stock_id</field-name></cmp-field>
+       <cmp-field><field-name>amount</field-name></cmp-field>
+       <cmp-field><field-name>price</field-name></cmp-field>
+       <cmp-field><field-name>trans_date</field-name></cmp-field>
+       <resource-ref>
+          <res-ref-name>jdbc/StockDB</res-ref-name>
+          <res-type>javax.sql.DataSource</res-type>
+          <res-auth>Container</res-auth>
+       </resource-ref>
+   </entity>
+
+    <entity>
+       <description>A CMP enitity bean for Stockitem </description>
+       <display-name>cmpStockItem</display-name>
+       <ejb-name>cmpStockItem</ejb-name>
+       <home>stockonline.ejb.entity.interf.StockItemHome</home>
+       <remote>stockonline.ejb.entity.interf.StockItem</remote>
+       <ejb-class>stockonline.ejb.entity.cmp.stockitem.StockItemBean</ejb-class>
+       <persistence-type>Container</persistence-type>
+       <prim-key-class>stockonline.ejb.entity.interf.StockItemPK</prim-key-class>
+       <reentrant>False</reentrant>
+       <cmp-field><field-name>stock_id</field-name></cmp-field>
+       <cmp-field><field-name>name</field-name></cmp-field>
+       <cmp-field><field-name>code</field-name></cmp-field>
+       <cmp-field><field-name>current_val</field-name></cmp-field>
+       <cmp-field><field-name>high_val</field-name></cmp-field>
+       <cmp-field><field-name>low_val</field-name></cmp-field>
+       <resource-ref>
+          <res-ref-name>jdbc/StockDB</res-ref-name>
+          <res-type>javax.sql.DataSource</res-type>
+          <res-auth>Container</res-auth>
+       </resource-ref>
+   </entity>
+
+    <entity>
+       <description>A CMP enitity bean for StockHolding </description>
+       <display-name>cmpStockHolding</display-name>
+       <ejb-name>cmpStockHolding</ejb-name>
+       <home>stockonline.ejb.entity.interf.StockHoldingHome</home>
+       <remote>stockonline.ejb.entity.interf.StockHolding</remote>
+       <ejb-class>stockonline.ejb.entity.cmp.stockholding.StockHoldingBean</ejb-class>
+       <persistence-type>Container</persistence-type>
+       <prim-key-class>stockonline.ejb.entity.interf.StockHoldingPK</prim-key-class>
+       <reentrant>False</reentrant>
+       <cmp-field><field-name>sub_accno</field-name></cmp-field>
+       <cmp-field><field-name>stock_id</field-name></cmp-field>
+       <cmp-field><field-name>amount</field-name></cmp-field>
+       <resource-ref>
+          <res-ref-name>jdbc/StockDB</res-ref-name>
+          <res-type>javax.sql.DataSource</res-type>
+          <res-auth>Container</res-auth>
+       </resource-ref>
+   </entity>
+
+    <session>
+       <description>session using CMP entity bean</description>
+       <display-name>cmpBroker</display-name>
+       <ejb-name>cmpBroker</ejb-name>
+       <home>stockonline.ejb.session.interf.BrokerHome</home>
+       <remote>stockonline.ejb.session.interf.Broker</remote>
+       <ejb-class>stockonline.ejb.session.useCMP.broker.BrokerBean</ejb-class>
+       <session-type>Stateless</session-type>
+       <transaction-type>Container</transaction-type>
+       <ejb-ref>
+          <ejb-ref-name>ejb/SubAccount</ejb-ref-name>
+	  <ejb-ref-type>Entity</ejb-ref-type>
+	  <home>stockonline.ejb.entity.interf.AccountHome</home>
+	  <remote>stockonline.ejb.entity.interf.Account</remote>
+	  <ejb-link>cmpAccount</ejb-link>
+       </ejb-ref>
+       <ejb-ref>
+          <ejb-ref-name>ejb/StockTransaction</ejb-ref-name>
+	  <ejb-ref-type>Entity</ejb-ref-type>
+	    <home>stockonline.ejb.entity.interf.StockTxHome</home>
+	  <remote>stockonline.ejb.entity.interf.StockTx</remote>
+	  <ejb-link>cmpStockTx</ejb-link>
+       </ejb-ref>
+       <ejb-ref>
+          <ejb-ref-name>ejb/StockItem</ejb-ref-name>
+	  <ejb-ref-type>Entity</ejb-ref-type>
+	  <home>stockonline.ejb.entity.interf.StockItemHome</home>
+	  <remote>stockonline.ejb.entity.interf.StockItem</remote>
+	  <ejb-link>cmpStockItem</ejb-link>
+       </ejb-ref>
+       <ejb-ref>
+          <ejb-ref-name>ejb/StockHolding</ejb-ref-name>
+	  <ejb-ref-type>Entity</ejb-ref-type>
+	  <home>stockonline.ejb.entity.interf.StockHoldingHome</home>
+	  <remote>stockonline.ejb.entity.interf.StockHolding</remote>
+	  <ejb-link>cmpStockHolding</ejb-link>
+       </ejb-ref>
+       <resource-ref>
+          <res-ref-name>jdbc/StockDB</res-ref-name>
+          <res-type>javax.sql.DataSource</res-type>
+          <res-auth>Container</res-auth>
+       </resource-ref>
+    </session>
+
+    <session>
+       <description>statelesss session only</description>
+       <display-name>statelessBroker</display-name>
+       <ejb-name>statelessBroker</ejb-name>
+       <home>stockonline.ejb.session.interf.BrokerHome</home>
+       <remote>stockonline.ejb.session.interf.Broker</remote>
+       <ejb-class>stockonline.ejb.session.stateless.broker.BrokerBean</ejb-class>
+       <session-type>Stateless</session-type>
+       <transaction-type>Container</transaction-type>
+       <resource-ref>
+          <res-ref-name>jdbc/StockDB</res-ref-name>
+          <res-type>javax.sql.DataSource</res-type>
+          <res-auth>Container</res-auth>
+       </resource-ref>
+    </session>
+
+  </enterprise-beans>
+
+ <assembly-descriptor>
+
+    <container-transaction>
+      <method>
+	<ejb-name>statelessBroker</ejb-name>
+	<method-name>*</method-name>
+      </method>
+      <trans-attribute>Required</trans-attribute>
+    </container-transaction>
+
+    <container-transaction>
+      <method>
+	<ejb-name>cmpBroker</ejb-name>
+	<method-name>*</method-name>
+      </method>
+      <trans-attribute>Required</trans-attribute>
+    </container-transaction>
+
+    <container-transaction>
+      <method>
+	<ejb-name>cmpAccount</ejb-name>
+	<method-name>*</method-name>
+      </method>
+      <trans-attribute>Required</trans-attribute>
+    </container-transaction>
+
+    <container-transaction>
+      <method>
+	<ejb-name>cmpStockTx</ejb-name>
+	<method-name>*</method-name>
+      </method>
+      <trans-attribute>Required</trans-attribute>
+    </container-transaction>
+
+    <container-transaction>
+      <method>
+	<ejb-name>cmpStockItem</ejb-name>
+	<method-name>*</method-name>
+      </method>
+      <trans-attribute>Required</trans-attribute>
+    </container-transaction>
+
+    <container-transaction>
+      <method>
+	<ejb-name>cmpStockHolding</ejb-name>
+	<method-name>*</method-name>
+      </method>
+      <trans-attribute>Required</trans-attribute>
+    </container-transaction>
+
+ </assembly-descriptor>
+
+</ejb-jar>

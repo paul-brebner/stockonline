@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<jboss>
+  <enterprise-beans>
+    <entity>
+      <ejb-name>cmpAccount</ejb-name>
+      <jndi-name>ejb/SubAccount</jndi-name>
+      <resource-ref>
+	<res-ref-name>jdbc/StockDB</res-ref-name>
+	<jndi-name>java:/StockDB</jndi-name>
+      </resource-ref>
+    </entity>
+    <entity>
+      <ejb-name>cmpStockHolding</ejb-name>
+      <jndi-name>ejb/StockHolding</jndi-name>
+      <resource-ref>
+	<res-ref-name>jdbc/StockDB</res-ref-name>
+	<jndi-name>java:/StockDB</jndi-name>
+      </resource-ref>
+    </entity>
+    <entity>
+      <ejb-name>cmpStockItem</ejb-name>
+      <jndi-name>ejb/StockItem</jndi-name>
+      <resource-ref>
+	<res-ref-name>jdbc/StockDB</res-ref-name>
+	<jndi-name>java:/StockDB</jndi-name>
+      </resource-ref>
+    </entity>
+    <entity>
+      <ejb-name>cmpStockTx</ejb-name>
+      <jndi-name>ejb/StockTransaction</jndi-name>
+      <resource-ref>
+	<res-ref-name>jdbc/StockDB</res-ref-name>
+	<jndi-name>java:/StockDB</jndi-name>
+      </resource-ref>
+    </entity>
+
+    <session>
+      <ejb-name>cmpBroker</ejb-name>
+      <jndi-name>ejb/cmpBroker</jndi-name>
+      <resource-ref>
+	<res-ref-name>jdbc/StockDB</res-ref-name>
+	<jndi-name>java:/StockDB</jndi-name>
+      </resource-ref>
+    </session>
+
+    <session>
+      <ejb-name>statelessBroker</ejb-name>
+      <jndi-name>ejb/statelessBroker</jndi-name>
+      <resource-ref>
+	<res-ref-name>jdbc/StockDB</res-ref-name>
+	<jndi-name>java:/StockDB</jndi-name>
+      </resource-ref>
+    </session>
+
+  </enterprise-beans>
+</jboss>
