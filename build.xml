@@ -1,0 +1,99 @@
+<project default="all" basedir=".">
+<!-- =================================================================== -->
+<description>
+   Build file for stockonline
+
+Prerequisites:
+
+   To set and run setenv.bat for your enivroment
+   To set stockonline.properties for your jdbc driver and j2ee application server
+
+Build Instructions:
+   To build, run: ant "target"
+   on the directory where this file (build.xml) is located.
+
+Most useful targets:
+
+ - compile  : compile all java files, *.class at ./build/classes
+ - ejbjar   : creates an EJB jar file for your J2EE application server, at ./build/lib
+ - client   : creates an client jar for any J2EE application server, at ./build/lib
+ - clean    : clean up files and directories
+
+Authors:
+  Shiping Chen Shiping.Chen@csiro.au
+
+Copyright:
+  Copyright (c) 2001-2003 CSIRO, All rights reserved.
+</description>
+<!-- ==================================================================== -->
+
+<!-- Properties required -->
+
+<!-- included properties file -->
+<property file="stockonline.properties"/>
+
+<!-- properties for javac -->
+<property name="deprecation" value="on" />
+<property name="debug" value="off" />
+<property name="compile.classpath" value="${JDBC.JAR}:${J2EE.JAR}" />
+
+<!-- existing dirs -->
+<property name="src.dir" value="./src" />
+<property name="build.dir" value="./build" />
+
+<!-- created dirs on fly for ant building -->
+<property name="build.classes" value="${build.dir}/classes" />
+<property name="build.lib" value="${build.dir}/lib" />
+<property name="build.deploy" value="${build.dir}/deploy" />
+
+  <!-- =================================================================== -->
+  <!-- Compile all java files                                              -->
+  <!-- =================================================================== -->
+  <target name="compile" >
+    <echo message="Comipling ... classpath = ${compile.classpath}" />
+    <mkdir dir="${build.classes}" />
+    <mkdir dir="${build.lib}" />
+    <mkdir dir="${build.deploy}/META-INF" />
+    <javac srcdir="${src.dir}" 
+           destdir="${build.classes}" 
+           debug="${debug}"
+           deprecation="${deprecation}"
+           classpath="${compile.classpath}">
+    </javac>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Generate jar files                                                  -->
+  <!-- =================================================================== -->
+  <target name="jboss" depends="compile" >
+    <copy todir="${build.deploy}/META-INF" >
+       <fileset dir="${deploy.common}"/>
+       <fileset dir="${deploy.j2ee}"/>
+    </copy>
+    <jar jarfile="${build.lib}/${ejb.jar}" basedir="${build.classes}">
+         <fileset dir="${build.classes}" excludes="**/client/**"/>
+         <fileset dir="${build.deploy}" />
+    </jar>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- Generate jar files                                                  -->
+  <!-- =================================================================== -->
+  <target name="client" depends="compile" >
+    <jar jarfile="${build.lib}/${client.jar}" basedir="${build.classes}" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- Generate jar files                                                  -->
+  <!-- =================================================================== -->
+  <target name="all" depends="compile,jboss,client" />
+  
+  <!-- =================================================================== -->
+  <!-- Clean everything                                                    -->
+  <!-- =================================================================== -->
+  <target name="clean" description="clean up, build, dist">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+ 
+</project>
