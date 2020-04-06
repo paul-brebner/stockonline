@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<jaws>
+  <datasource>StockDB</datasource>
+  <type-mapping>Oracle8</type-mapping>
+
+  <default-entity>
+    <create-table>false</create-table> <!-- Don't try and create table at deployment -->
+    <remove-table>false</remove-table> <!-- Don't drop the table at undeployment -->
+    <tuned-updates>false</tuned-updates> <!-- Check modification before update -->
+  </default-entity>
+
+  <enterprise-beans>
+    <entity>
+      <ejb-name>cmpAccount</ejb-name>
+      <table-name>SubAccount</table-name>
+      <cmp-field>
+        <field-name>sub_credit</field-name>
+        <column-name>sub_credit</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>sub_name</field-name>
+        <column-name>sub_name</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>sub_address</field-name>
+        <column-name>sub_address</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>sub_accno</field-name>
+        <column-name>sub_accno</column-name>
+      </cmp-field>
+    </entity>
+    <entity>
+      <ejb-name>cmpStockHolding</ejb-name>
+      <table-name>StockHolding</table-name>
+      <cmp-field>
+        <field-name>amount</field-name>
+        <column-name>amount</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>stock_id</field-name>
+        <column-name>stock_id</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>sub_accno</field-name>
+        <column-name>sub_accno</column-name>
+      </cmp-field>
+      <finder>
+        <name>findByAccountID</name>
+        <query>sub_accno = {0} and rownum &lt; 10</query>
+        <order></order>
+      </finder>
+      <finder>
+        <name>findByPrimaryKeyVerify</name>
+        <query>sub_accno = {0} and stock_id = {1}</query>
+        <order></order>
+      </finder>
+    </entity>
+
+    <entity>
+      <ejb-name>cmpStockItem</ejb-name>
+      <table-name>StockItem</table-name>
+      <cmp-field>
+        <field-name>low_val</field-name>
+        <column-name>low_val</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>high_val</field-name>
+        <column-name>high_val</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>current_val</field-name>
+        <column-name>current_val</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>stock_id</field-name>
+        <column-name>stock_id</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>code</field-name>
+        <column-name>code</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>name</field-name>
+        <column-name>name</column-name>
+      </cmp-field>
+      <finder>
+        <name>findByCode</name>
+        <query>code = {0}</query>
+        <order></order>
+      </finder>
+    </entity>
+
+    <entity>
+      <ejb-name>cmpStockTx</ejb-name>
+      <table-name>StockTransaction</table-name>
+      <cmp-field>
+        <field-name>trans_date</field-name>
+        <column-name>trans_date</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>price</field-name>
+        <column-name>price</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>amount</field-name>
+        <column-name>amount</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>stock_id</field-name>
+        <column-name>stock_id</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>sub_accno</field-name>
+        <column-name>sub_accno</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>trans_type</field-name>
+        <column-name>trans_type</column-name>
+      </cmp-field>
+      <cmp-field>
+        <field-name>trans_id</field-name>
+        <column-name>trans_id</column-name>
+      </cmp-field>
+    </entity>
+
+  </enterprise-beans>
+</jaws>
