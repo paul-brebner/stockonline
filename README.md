@@ -7,6 +7,7 @@ project I was involved with in the early 2000s (1999-2003) in CSIRO (Australia) 
 We did lots of benchmarking, looking at the impact of different JVMs, JVM tunning, architectural choices, etc. We published lots of papers and attended lots of conferences (academic and industry conferences, and went on road shows around the country to help educate people about the pros and cons of different J2EE solutions), and worked with vendors to fix bugs and improve results (e.g. we found bugs in the Sun JVM, and tried to work out if the Fujitsu Interstage AppServer was actually J2EE compliant given it's rather novel deployment pattern - every bean had to be deployed in a separate container!). 
 
 The main output of the project was a detailed comparison of about 6 Application Servers which was published by CSIRO Publishing and Cutter Consortium.  This report was initially sold for lots of $$$, but we eventually made it free when the project closed up (2003) and it was downloaded over 1000 times: https://www.theserverside.com/discussions/thread/18630.html
+A PDF copy of the final report is here.
 
 We also made the headlines (https://www.computerworld.com/article/3470516/scientific-group-aims-at-independent-platform-evaluation.html) and generated lots of discussion, particularly given that at the time CSIRO for more known for studying Wombat Droppings than Middlware evaluations! E.g. https://www.theserverside.com/discussions/thread/8875.html
  
