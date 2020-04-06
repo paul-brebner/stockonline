@@ -14,7 +14,7 @@ I was awarded an Australian Science Academy/French Embassy travel grant to work 
 
 We also open sourced an ECPerf kit for JBoss: https://www.theserverside.com/discussions/thread/13635.html
 
-We also had in-depth knowledge of other J2EE benchmarks including ECPerf, which evolved into the SPEC J2EE benchmarks.  I contributed to a couple of these: https://www.spec.org/jAppServer2001/press_release.html
+We also had in-depth knowledge of other J2EE benchmarks including ECPerf, which evolved into the SPEC J2EE benchmarks.  I contributed to a couple of these: https://www.spec.org/jAppServer2001/press_release.html and https://www.spec.org/jAppServer2002/press_release.html
 
 After this project ended I worked on a CSIRO Astronomy Cluster Computing/Grid project, and then worked for a year (2004) with Professor Wolfgang Emmerich (https://www.linkedin.com/in/wolfgangemmerich/?originalSubdomain=uk) at UCL in London on a very interesting Grid (OGSA) project (which suprisingly is still has the original web page): http://sse.cs.ucl.ac.uk/UK-OGSA/
 
@@ -29,6 +29,8 @@ The Rigorous Evaluation of Enterprise Java Bean Technology. ICOIN 2001: 93-104
 Paul Brebner, Ben Logan:
 Project JebX: A Java ebXML Experience. IPDPS 2003: 246
 2001
+
+Brebner, P. (Ed.), Evaluating J2EE Application Servers - Version 2.1, July 2002, CSIRO Publishing and Cutter Consortium.
 
 Paul Brebner, Jeffrey Gosper:
 How scalable is J2EE technology? ACM SIGSOFT Software Engineering Notes 28(3): 4 (2003)
@@ -46,6 +48,7 @@ The J2EE ECperf benchmark results: transient trophies or technology treasures? C
 Paul Brebner, Emmanuel Cecchet, Julie Marguerite, Petr Tuma, Octavian Ciuhandu, Bruno Dufour, Lieven Eeckhout, Stéphane Frénot, Arvind S. Krishna, John Murphy, Clark Verbrugge:
 Middleware benchmarking: approaches, results, experiences. Concurr. Comput. Pract. Exp. 17(15): 1799-1805 (2005)
 
+For a bit more background see: http://acomputerscientistlearnsaws.blogspot.com/2017/04/who-am-i-what-did-computer-scientist-do_52.html
 
 
 
