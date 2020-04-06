@@ -38,7 +38,7 @@ J2EE infrastructure scalability and throughput estimation. SIGMETRICS Performanc
 
 Ian Gorton, Anna Liu, Paul Brebner:
 Rigorous Evaluation of COTS Middleware Technology. IEEE Computer 36(3): 50-55 (2003)
-(We were the cover feature for this issue, see: https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.researchgate.net%2Fpublication%2F2955854_Rigorous_evaluation_of_COTS_Middleware_technology&psig=AOvVaw3cpItovulfwHOZi8pppmM7&ust=1586221562038000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPizgfjN0ugCFQAAAAAdAAAAABAO
+(We were the cover feature for this issue, see: https://i1.rgstatic.net/publication/2955854_Rigorous_evaluation_of_COTS_Middleware_technology/links/0046353b34f4771202000000/largepreview.png
 
 Paul Brebner, Jeffrey Gosper:
 The J2EE ECperf benchmark results: transient trophies or technology treasures? Concurrency - Practice and Experience 16(10): 1023-1036 (2004)
